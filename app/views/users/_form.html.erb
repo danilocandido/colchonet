@@ -1,8 +1,17 @@
-<% @user.errors.full_messages.each do |msg|%>
-    <div style="color:red;">
-        <%= msg %>
-    </div>
-<%end%>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>Infelizmente não foi possível completar
+        a ação pois o formulário possui os seguintes erros:
+    </h2>
+    
+    <ul>
+      <% @user.errors.full_messages.each do |message|%>
+        Mostre os erros no formulário Casa do Código
+        <li><%= message %> </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for @user do |f| %>
   
