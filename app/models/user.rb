@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
-  validates :email, :full_name, :location, :password, presence: true
+  validates :email, :full_name, :location, presence: true
   validates :email, uniqueness: true
-  validates :password, confirmation: true
   validates :bio, length: {minimum: 30}, allow_blank: false
+
+  has_secure_password
 
   validate :email_format
 
