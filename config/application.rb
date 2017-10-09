@@ -14,5 +14,9 @@ module Colchonet
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    #changing language to Portuguese - need this file -> config/locales/rails.pt-BR.yml
+    config.time_zone = 'Brasilia'
+    config.i18n.default_locale = :"pt-BR"
   end
 end
