@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
-  
-  def new 
+
+  def new
     @user_session = UserSession.new(session)
   end
 
@@ -13,7 +13,5 @@ class UserSessionsController < ApplicationController
     end
   end
 
-  def destroy
-    #destruir
-  end
+  def destroy; end
 end

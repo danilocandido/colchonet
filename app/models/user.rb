@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates :email, :full_name, :location, presence: true
   validates :email, uniqueness: true
-  validates :bio, length: {minimum: 30}, allow_blank: false
+  validates :bio, length: { minimum: 30 }, allow_blank: false
 
   validate :email_format
 
@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def confirm!
     return if confirmed?
-    
+
     self.confirmed_at = Time.current
     self.confirmation_token = ''
     save!
@@ -35,8 +35,8 @@ class User < ApplicationRecord
   end
 
   private
-    def email_format
-      errors.add(:email, :invalid) unless email.match(EMAIL_REGEXP)
-    end
-    
+
+  def email_format
+    errors.add(:email, :invalid) unless email.match(EMAIL_REGEXP)
+  end
 end
